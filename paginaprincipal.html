@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Escola Estadual José de Alencar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #f5f8fc;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: #073b7a;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: #f7c600;
+            color: #073b7a;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #f7c600;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 650px;
+            background:
+                linear-gradient(120deg, rgba(3, 37, 76, 0.97), rgba(6, 80, 150, 0.88)),
+                radial-gradient(circle at 80% 30%, #1697d4, transparent 35%);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 1200px;
+            max-width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text .tag {
+            display: inline-block;
+            background: #f7c600;
+            color: #073b7a;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h2 {
+            font-size: clamp(38px, 5vw, 64px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        .hero-text h2 span {
+            color: #f7c600;
+        }
+
+        .hero-text p {
+            font-size: 19px;
+            max-width: 650px;
+            color: #e5eef9;
+            margin-bottom: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #f7c600;
+            color: #073b7a;
+        }
+
+        .btn-primary:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #073b7a;
+        }
+
+        /* CARD DO EMTI */
+        .emti-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+
+        .emti-card .icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            background: #f7c600;
+            color: #073b7a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            margin-bottom: 22px;
+        }
+
+        .emti-card h3 {
+            font-size: 29px;
+            margin-bottom: 12px;
+        }
+
+        .emti-card p {
+            color: #e4eef9;
+            margin-bottom: 22px;
+        }
+
+        .tech-highlight {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 14px;
+            padding: 18px;
+            border-left: 4px solid #f7c600;
+        }
+
+        .tech-highlight strong {
+            display: block;
+            color: #f7c600;
+            font-size: 18px;
+        }
+
+        /* SEÇÕES */
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #0b75c9;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #073b7a;
+            margin-top: 8px;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 12px auto;
+            color: #637083;
+        }
+
+        /* SOBRE */
+        .about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 360px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #0b75c9, #073b7a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 100px;
+            box-shadow: 0 20px 40px rgba(7, 59, 122, 0.2);
+        }
+
+        .about-text h3 {
+            font-size: 32px;
+            color: #073b7a;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: #5e6877;
+            margin-bottom: 18px;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #e4eaf2;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .card-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #073b7a;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #687385;
+        }
+
+        /* EMTI */
+        .emti-section {
+            background: #073b7a;
+            color: white;
+        }
+
+        .emti-section .section-title h2 {
+            color: white;
+        }
+
+        .emti-section .section-title p {
+            color: #dbe8f5;
+        }
+
+        .emti-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .emti-box {
+            background: rgba(255,255,255,0.09);
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .emti-box h3 {
+            color: #f7c600;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .emti-box ul {
+            list-style: none;
+        }
+
+        .emti-box li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .emti-box li::before {
+            content: "✓";
+            color: #f7c600;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* TÉCNICO */
+        .technical {
+            background: #f5f8fc;
+        }
+
+        .technical-banner {
+            background: linear-gradient(120deg, #0b75c9, #00a7d8);
+            color: white;
+            padding: 45px;
+            border-radius: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .technical-banner h3 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .computer-icon {
+            font-size: 100px;
+        }
+
+        /* CONTATO */
+        .contact {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: #f5f8fc;
+        }
+
+        .contact-item .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .contact-item h3 {
+            color: #073b7a;
+            margin-bottom: 7px;
+        }
+
+        .contact-item p {
+            color: #687385;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #03294f;
+            color: white;
+            padding: 35px 25px;
+            text-align: center;
+        }
+
+        footer strong {
+            color: #f7c600;
+        }
+
+        footer p {
+            margin-top: 8px;
+            color: #b9c9da;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 850px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero-content,
+            .about-grid,
+            .emti-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .cards,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .technical-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image {
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hero-text h2 {
+                font-size: 40px;
+            }
+
+            .emti-card,
+            .technical-banner {
+                padding: 25px;
+            }
+
+            section {
+                padding: 65px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="navbar">
+
+            <div class="logo">
+                <div class="logo-icon">JA</div>
+
+                <div>
+                    <h1>José de Alencar</h1>
+                    <span>Escola Estadual</span>
+                </div>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="galeriadeim.html">Galeria de Imagem</a></li>
+                    <li><a href="cursostecnicos.html">Cursos Tecnicos</a></li>
+                    <li><a href="historia.html">Historia</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- DESTAQUE PRINCIPAL -->
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-content">
+
+                <div class="hero-text">
+
+                    <span class="tag">EDUCAÇÃO • TECNOLOGIA • FUTURO</span>
+
+                    <h2>
+                        Seu futuro começa
+                        <span>aqui.</span>
+                    </h2>
+
+                    <p>
+                        Bem-vindo à Escola Estadual José de Alencar.
+                        Uma escola que une educação de qualidade, formação
+                        integral e tecnologia para preparar nossos estudantes
+                        para os desafios do futuro.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#emti" class="btn btn-primary">
+                            Conheça o EMTI
+                        </a>
+
+                        <a href="#escola" class="btn btn-outline">
+                            Conheça a escola
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <!-- DESTAQUE EMTI -->
+                <div class="emti-card">
+
+                    <div class="icon">🎓</div>
+
+                    <h3>
+                        Ensino Médio em
+                        Tempo Integral
+                    </h3>
+
+                    <p>
+                        Uma formação completa que amplia as oportunidades
+                        acadêmicas, profissionais e pessoais dos nossos
+                        estudantes.
+                    </p>
+
+                    <div class="tech-highlight">
+                        <strong>💻 + Técnico em Informática</strong>
+                        Formação integrada ao Ensino Médio para desenvolver
+                        conhecimentos e competências na área de tecnologia.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SOBRE A ESCOLA -->
+        <section class="about" id="escola">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <span>Conheça nossa escola</span>
+                    <h2>Escola Estadual José de Alencar</h2>
+
+                    <p>
+                        Um espaço de aprendizagem, convivência, inovação
+                        e desenvolvimento para nossos estudantes.
+                    </p>
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-image">
+                        🏫
+                    </div>
+
+                    <div class="about-text">
+
+                        <h3>
+                            Educação para transformar
+                            vidas
+                        </h3>
+
+                        <p>
+                            A Escola Estadual José de Alencar tem como
+                            compromisso oferecer uma educação que valoriza
+                            o conhecimento, a cidadania, a criatividade e
+                            o desenvolvimento integral dos estudantes.
+                        </p>
+
+                        <p>
+                            Nossa proposta pedagógica busca preparar os
+                            jovens não apenas para os próximos desafios
+                            acadêmicos, mas também para o mundo do trabalho
+                            e para uma sociedade cada vez mais conectada.
+                        </p>
+
+                        <p>
+                            Por meio do Ensino Médio em Tempo Integral,
+                            nossos alunos contam com uma jornada ampliada
+                            de aprendizagem e novas possibilidades de
+                            formação.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DIFERENCIAIS -->
+        <section>
+
+            <div class="container">
+
+                <div class="section-title">
+                    <span>Nossos diferenciais</span>
+                    <h2>Uma formação completa</h2>
+
+                    <p>
+                        Mais tempo para aprender, criar, colaborar
+                        e construir o próprio futuro.
+                    </p>
+                </div>
+
+
+                <div class="cards">
+
+                    <div class="card">
+                        <div class="card-icon">📚</div>
+                        <h3>Formação Acadêmica</h3>
+                        <p>
+                            Ensino de qualidade com uma formação sólida
+                            para ampliar as possibilidades dos estudantes.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">💡</div>
+                        <h3>Inovação</h3>
+                        <p>
+                            Estímulo à criatividade, à resolução de problemas
+                            e ao desenvolvimento de novas ideias.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🤝</div>
+                        <h3>Formação Integral</h3>
+                        <p>
+                            Desenvolvimento de competências acadêmicas,
+                            profissionais, sociais e pessoais.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EMTI -->
+        <section class="emti-section" id="emti">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>Nosso grande diferencial</span>
+
+                    <h2>
+                        Ensino Médio em Tempo Integral
+                    </h2>
+
+                    <p>
+                        Uma experiência educacional ampliada,
+                        integrada à formação técnica em Informática.
+                    </p>
+
+                </div>
+
+
+                <div class="emti-content">
+
+                    <div class="emti-box">
+
+                        <h3>🎯 O que é o EMTI?</h3>
+
+                        <p>
+                            O Ensino Médio em Tempo Integral amplia as
+                            oportunidades de aprendizagem, permitindo que
+                            o estudante tenha uma experiência educacional
+                            mais completa durante sua jornada escolar.
+                        </p>
+
+                    </div>
+
+
+                    <div class="emti-box">
+
+                        <h3>💻 Formação Técnica</h3>
+
+                        <p>
+                            Além da formação geral do Ensino Médio, o aluno
+                            tem acesso à formação técnica em Informática,
+                            desenvolvendo conhecimentos relacionados à
+                            tecnologia e ao mundo do trabalho.
+                        </p>
+
+                    </div>
+
+
+                    <div class="emti-box">
+
+                        <h3>🚀 Preparação para o futuro</h3>
+
+                        <ul>
+                            <li>Desenvolvimento de competências digitais</li>
+                            <li>Preparação para o mundo do trabalho</li>
+                            <li>Desenvolvimento do pensamento crítico</li>
+                            <li>Projetos e atividades práticas</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="emti-box">
+
+                        <h3>🌟 Uma experiência diferente</h3>
+
+                        <p>
+                            O estudante é incentivado a ser protagonista
+                            da própria aprendizagem, desenvolvendo autonomia,
+                            responsabilidade e habilidades para construir
+                            seu projeto de vida.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TÉCNICO EM INFORMÁTICA -->
+        <section class="technical" id="tecnico">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <span>Formação profissional</span>
+                    <h2>Técnico em Informática</h2>
+
+                    <p>
+                        Tecnologia e educação caminhando juntas.
+                    </p>
+                </div>
+
+
+                <div class="technical-banner">
+
+                    <div>
+                        <h3>
+                            Ensino Médio + Técnico
+                        </h3>
+
+                        <p>
+                            Uma oportunidade para concluir o Ensino Médio
+                            desenvolvendo também conhecimentos e competências
+                            na área de Informática.
+                        </p>
+
+                        <br>
+
+                        <a href="#contato" class="btn btn-primary">
+                            Saiba mais
+                        </a>
+                    </div>
+
+                    <div class="computer-icon">
+                        💻
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTATO -->
+        <section class="contact" id="contato">
+
+            <div class="container">
+
+                <div class="section-title">
+                    <span>Fale conosco</span>
+                    <h2>Entre em contato</h2>
+
+                    <p>
+                        Para informações sobre a escola, cursos e
+                        Ensino Médio em Tempo Integral.
+                    </p>
+                </div>
+
+
+                <div class="contact-grid">
+
+                    <div class="contact-item">
+                        <div class="icon">📍</div>
+                        <h3>Endereço</h3>
+                        <p>
+                            Rua da Escola, 123<br>
+                            Sua cidade - MG
+                        </p>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">📞</div>
+                        <h3>Telefone</h3>
+                        <p>
+                            (00) 0000-0000
+                        </p>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">✉️</div>
+                        <h3>E-mail</h3>
+                        <p>
+                            contato@escolajosealencar.edu.br
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <strong>Escola Estadual José de Alencar</strong>
+
+        <p>
+            Ensino Médio em Tempo Integral • Técnico em Informática
+        </p>
+
+        <p>
+            © 2026 Escola Estadual José de Alencar. Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+</body>
+</html>
