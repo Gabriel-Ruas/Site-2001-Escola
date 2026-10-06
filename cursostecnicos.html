@@ -1,5 +1,9 @@
+Claro. Vou manter sua página praticamente igual, mas corrigir os botões **“Saiba mais”** para que os 6 tenham exatamente o mesmo tamanho, alinhamento e comportamento, inclusive no celular.
+
+```
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +11,7 @@
     <title>Cursos | Escola Estadual José de Alencar</title>
 
     <style>
+
         :root {
             --primary: #0056b3;
             --primary-dark: #003d80;
@@ -81,6 +86,7 @@
             align-items: center;
             font-size: 22px;
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         .logo h1 {
@@ -120,6 +126,7 @@
                     rgba(0,86,179,0.97),
                     rgba(0,45,94,0.97)
                 );
+
             color: white;
             padding: 85px 20px;
             text-align: center;
@@ -137,21 +144,38 @@
             opacity: 0.92;
         }
 
+        /* ================= BOTÕES ================= */
+
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
             background-color: var(--secondary);
             color: white;
+
             padding: 12px 28px;
+
+            min-width: 125px;
+            height: 46px;
+
             border-radius: var(--radius);
+
             text-decoration: none;
             font-weight: bold;
+            font-size: 15px;
+
             transition: var(--transition);
+
             border: none;
             cursor: pointer;
+
+            white-space: nowrap;
         }
 
         .btn:hover {
             background-color: #218838;
+            color: white;
             transform: translateY(-2px);
         }
 
@@ -213,8 +237,10 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             overflow: hidden;
+
             display: flex;
             flex-direction: column;
+
             transition: var(--transition);
         }
 
@@ -223,17 +249,19 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
+        /* ================= IMAGENS DOS CURSOS ================= */
+
         .course-image {
             height: 190px;
             background-size: cover;
             background-position: center;
+
             position: relative;
+
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
-        /* Imagens com gradiente para não depender de links externos */
 
         .fundamental {
             background: linear-gradient(135deg, #1565c0, #42a5f5);
@@ -268,19 +296,28 @@
             position: absolute;
             top: 15px;
             left: 15px;
+
             background-color: var(--primary);
             color: white;
+
             padding: 6px 13px;
+
             border-radius: 20px;
+
             font-size: 12px;
             font-weight: bold;
+
             text-transform: uppercase;
         }
 
+        /* ================= CONTEÚDO DO CARD ================= */
+
         .course-content {
             padding: 25px;
+
             display: flex;
             flex-direction: column;
+
             flex-grow: 1;
         }
 
@@ -294,16 +331,23 @@
             color: var(--gray);
             font-size: 14px;
             margin-bottom: 20px;
+
             flex-grow: 1;
         }
 
+        /* ================= DETALHES ================= */
+
         .course-details {
             border-top: 1px solid #dee2e6;
+
             padding-top: 15px;
             margin-bottom: 20px;
+
             display: grid;
             grid-template-columns: 1fr 1fr;
+
             gap: 10px;
+
             font-size: 13px;
         }
 
@@ -311,32 +355,93 @@
             color: var(--primary);
         }
 
+        /* ================= RODAPÉ DOS CARDS ================= */
+
         .course-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             gap: 10px;
+
+            margin-top: auto;
         }
 
         .course-type {
             font-size: 13px;
             color: var(--gray);
+
+            flex: 1;
         }
 
         .course-type strong {
             display: block;
+
             color: var(--primary);
+
             font-size: 16px;
+        }
+
+        /* IMPORTANTE:
+           Todos os botões dos cards recebem
+           exatamente o mesmo tamanho. */
+
+        .course-footer .btn {
+            flex: 0 0 125px;
+
+            width: 125px;
+            min-width: 125px;
+
+            height: 46px;
+
+            padding: 12px 10px;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background-color: var(--secondary);
+            color: white;
+
+            border-radius: var(--radius);
+
+            font-size: 15px;
+            font-weight: bold;
+
+            text-decoration: none;
+
+            border: none;
+
+            cursor: pointer;
+
+            transition: var(--transition);
+
+            white-space: nowrap;
+        }
+
+        .course-footer .btn:hover {
+            background-color: #218838;
+            color: white;
+
+            transform: translateY(-2px);
         }
 
         /* ================= DESTAQUE ================= */
 
         .info-section {
             background: white;
+
             padding: 45px 30px;
+
             margin-bottom: 60px;
+
             border-radius: var(--radius);
+
             box-shadow: var(--shadow);
+
             text-align: center;
         }
 
@@ -347,7 +452,9 @@
 
         .info-section p {
             color: var(--gray);
+
             max-width: 800px;
+
             margin: auto;
         }
 
@@ -355,9 +462,13 @@
 
         footer {
             background-color: var(--dark);
+
             color: white;
+
             padding: 40px 20px;
+
             text-align: center;
+
             font-size: 14px;
         }
 
@@ -376,7 +487,9 @@
 
             .navbar {
                 flex-direction: column;
+
                 gap: 15px;
+
                 text-align: center;
             }
 
@@ -418,18 +531,27 @@
                 align-items: stretch;
             }
 
+            .course-footer .course-type {
+                width: 100%;
+            }
+
             .course-footer .btn {
-                text-align: center;
+                width: 100%;
+                min-width: 100%;
+                flex: none;
+
+                height: 46px;
             }
         }
 
-        /* Classe utilizada pelo filtro */
+        /* ================= FILTRO ================= */
 
         .hidden {
             display: none;
         }
 
     </style>
+
 </head>
 
 <body>
@@ -447,8 +569,15 @@
                 </div>
 
                 <div>
-                    <h1>Escola Estadual José de Alencar</h1>
-                    <span>Educação, Formação e Oportunidades</span>
+
+                    <h1>
+                        Escola Estadual José de Alencar
+                    </h1>
+
+                    <span>
+                        Educação, Formação e Oportunidades
+                    </span>
+
                 </div>
 
             </div>
@@ -458,19 +587,27 @@
                 <ul>
 
                     <li>
-                        <a href="index.html">Início</a>
+                        <a href="index.html">
+                            Início
+                        </a>
                     </li>
 
                     <li>
-                        <a href="galeriadeim.html">Galeria de Imagens</a>
+                        <a href="galeriadeim.html">
+                            Galeria de Imagens
+                        </a>
                     </li>
 
                     <li>
-                        <a href="historia.html">História</a>
+                        <a href="historia.html">
+                            História
+                        </a>
                     </li>
 
                     <li>
-                        <a href="contato.html">Contato</a>
+                        <a href="contato.html">
+                            Contato
+                        </a>
                     </li>
 
                 </ul>
@@ -480,7 +617,6 @@
         </div>
 
     </header>
-
 
     <!-- ================= HERO ================= -->
 
@@ -506,7 +642,6 @@
 
     </section>
 
-
     <!-- ================= CONTEÚDO ================= -->
 
     <main class="container" id="cursos">
@@ -522,7 +657,6 @@
             </p>
 
         </div>
-
 
         <!-- ================= FILTROS ================= -->
 
@@ -572,19 +706,19 @@
 
         </div>
 
-
         <!-- ================= GRADE DE CURSOS ================= -->
 
         <div class="courses-grid">
 
-
-            <!-- CARD 1 -->
+            <!-- ================= CARD 1 ================= -->
 
             <div class="course-card" data-category="fundamental">
 
                 <div class="course-image fundamental">
 
-                    <span class="course-icon">📚</span>
+                    <span class="course-icon">
+                        📚
+                    </span>
 
                     <span class="badge">
                         Fundamental
@@ -628,8 +762,13 @@
                     <div class="course-footer">
 
                         <div class="course-type">
-                            <strong>Educação Básica</strong>
+
+                            <strong>
+                                Educação Básica
+                            </strong>
+
                             Formação escolar
+
                         </div>
 
                         <a href="contato.html" class="btn">
@@ -642,14 +781,15 @@
 
             </div>
 
-
-            <!-- CARD 2 -->
+            <!-- ================= CARD 2 ================= -->
 
             <div class="course-card" data-category="medio">
 
                 <div class="course-image medio">
 
-                    <span class="course-icon">🎓</span>
+                    <span class="course-icon">
+                        🎓
+                    </span>
 
                     <span class="badge">
                         Ensino Médio
@@ -692,8 +832,13 @@
                     <div class="course-footer">
 
                         <div class="course-type">
-                            <strong>Ensino Médio</strong>
+
+                            <strong>
+                                Ensino Médio
+                            </strong>
+
                             Formação regular
+
                         </div>
 
                         <a href="contato.html" class="btn">
@@ -706,14 +851,15 @@
 
             </div>
 
-
-            <!-- CARD 3 -->
+            <!-- ================= CARD 3 ================= -->
 
             <div class="course-card" data-category="profissionalizante">
 
                 <div class="course-image profissionalizante">
 
-                    <span class="course-icon">🛠️</span>
+                    <span class="course-icon">
+                        🛠️
+                    </span>
 
                     <span class="badge">
                         Profissionalizante
@@ -756,27 +902,34 @@
                     <div class="course-footer">
 
                         <div class="course-type">
-                            <strong>Profissionalizante</strong>
+
+                            <strong>
+                                Profissionalizante
+                            </strong>
+
                             Formação acadêmica e profissional
+
                         </div>
-                       
+
                         <a href="contato.html" class="btn">
                             Saiba mais
                         </a>
+
                     </div>
 
                 </div>
 
             </div>
 
-
-            <!-- CARD 4 -->
+            <!-- ================= CARD 4 ================= -->
 
             <div class="course-card" data-category="informatica">
 
                 <div class="course-image informatica">
 
-                    <span class="course-icon">💻</span>
+                    <span class="course-icon">
+                        💻
+                    </span>
 
                     <span class="badge">
                         Tecnologia
@@ -820,8 +973,13 @@
                     <div class="course-footer">
 
                         <div class="course-type">
-                            <strong>Técnico</strong>
+
+                            <strong>
+                                Técnico
+                            </strong>
+
                             Informática e tecnologia
+
                         </div>
 
                         <a href="contato.html" class="btn">
@@ -834,14 +992,15 @@
 
             </div>
 
-
-            <!-- CARD 5 -->
+            <!-- ================= CARD 5 ================= -->
 
             <div class="course-card" data-category="eja">
 
                 <div class="course-image eja">
 
-                    <span class="course-icon">📘</span>
+                    <span class="course-icon">
+                        📘
+                    </span>
 
                     <span class="badge">
                         EJA
@@ -884,8 +1043,13 @@
                     <div class="course-footer">
 
                         <div class="course-type">
-                            <strong>EJA</strong>
+
+                            <strong>
+                                EJA
+                            </strong>
+
                             Educação de Jovens e Adultos
+
                         </div>
 
                         <a href="contato.html" class="btn">
@@ -898,14 +1062,15 @@
 
             </div>
 
-
-            <!-- CARD 6 -->
+            <!-- ================= CARD 6 ================= -->
 
             <div class="course-card" data-category="extras">
 
                 <div class="course-image extras">
 
-                    <span class="course-icon">🌟</span>
+                    <span class="course-icon">
+                        🌟
+                    </span>
 
                     <span class="badge">
                         Cursos Extras
@@ -948,8 +1113,13 @@
                     <div class="course-footer">
 
                         <div class="course-type">
-                            <strong>Complementar</strong>
+
+                            <strong>
+                                Complementar
+                            </strong>
+
                             Cursos e atividades extras
+
                         </div>
 
                         <a href="contato.html" class="btn">
@@ -962,9 +1132,7 @@
 
             </div>
 
-
         </div>
-
 
         <!-- ================= INFORMAÇÃO ================= -->
 
@@ -985,7 +1153,6 @@
 
     </main>
 
-
     <!-- ================= RODAPÉ ================= -->
 
     <footer>
@@ -1004,28 +1171,31 @@
 
     </footer>
 
-
     <!-- ================= JAVASCRIPT ================= -->
 
     <script>
 
         function filtrarCursos(categoria, botao) {
 
-            const cursos = document.querySelectorAll('.course-card');
+            const cursos =
+                document.querySelectorAll('.course-card');
 
-            const botoes = document.querySelectorAll('.filter-btn');
+            const botoes =
+                document.querySelectorAll('.filter-btn');
 
-            // Remove o estado ativo dos botões
+            /* Remove o estado ativo dos botões */
 
             botoes.forEach(function(btn) {
+
                 btn.classList.remove('active');
+
             });
 
-            // Ativa o botão selecionado
+            /* Ativa o botão selecionado */
 
             botao.classList.add('active');
 
-            // Filtra os cursos
+            /* Filtra os cursos */
 
             cursos.forEach(function(curso) {
 
@@ -1052,4 +1222,6 @@
     </script>
 
 </body>
+
 </html>
+```
